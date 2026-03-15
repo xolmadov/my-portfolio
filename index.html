@@ -3,154 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Izatlo Xolmadov | Fullstack Dasturchi & Kiberxavfsizlik Mutaxassisi</title>
-    <meta name="description" content="Izatlo Xolmadov - Fullstack dasturchi va Kiberxavfsizlik mutaxassisi. API loyihalar, Telegram botlar va web ilovalar.">
-    
-
+    <title>Izatlo Xolmadov | Fullstack Dasturchi & Kiberxavfsizlik</title>
+    <meta name="description" content="Izatlo Xolmadov - Fullstack dasturchi va Kiberxavfsizlik mutaxassisi.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="cursor-dot" data-cursor-dot></div>
-    <div class="cursor-outline" data-cursor-outline></div>
+    <!-- Custom Cursor -->
+    <div class="cursor-saber" id="cursor-saber"></div>
+    <div class="cursor-core" id="cursor-core"></div>
 
+    <!-- Sith particles -->
+    <canvas id="particles-canvas"></canvas>
 
-    <div class="bg-gradient-1"></div>
-    <div class="bg-gradient-2"></div>
+    <!-- Scanlines overlay -->
+    <div class="scanlines"></div>
 
-
-    <nav class="glass-nav">
+    <!-- NAV -->
+    <nav class="sith-nav" id="sith-nav">
         <div class="nav-container">
-            <a href="#" class="logo">IZATLO<span class="highlight">DEV</span></a>
+            <a href="#home" class="logo">
+                <span class="logo-bracket">[</span>
+                IZATLO<span class="logo-accent">DEV</span>
+                <span class="logo-bracket">]</span>
+            </a>
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link">Bosh Sahifa</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">Haqimda</a></li>
-                <!-- <li class="nav-item"><a href="#projects" class="nav-link">Loyihalar</a></li> -->
-                <li class="nav-item"><a href="#services" class="nav-link">Xizmatlar</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link btn-contact">Bog'lanish</a></li>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link"><span class="nav-num">01.</span>Bosh Sahifa</a></li>
+                <li><a href="#about" class="nav-link"><span class="nav-num">02.</span>Haqimda</a></li>
+                <li><a href="#projects" class="nav-link"><span class="nav-num">03.</span>Loyihalar</a></li>
+                <li><a href="#services" class="nav-link"><span class="nav-num">04.</span>Xizmatlar</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Bog'lanish</a></li>
             </ul>
         </div>
     </nav>
 
-
+    <!-- HERO -->
     <section id="home" class="hero">
-        <div class="container hero-container">
-            <div class="hero-content" data-aos="fade-up">
-                <span class="subtitle">Salom, men</span>
-                <h1 class="title glitched-text">Izatlo Xolmadov</h1>
-                <h2 class="role">Fullstack Dasturchi & <span class="highlight">Cybersecurity Specialist</span></h2>
-                <p class="description">
+        <!-- Lightsaber beams from sides -->
+        <div class="saber-left"></div>
+        <div class="saber-right"></div>
+
+        <div class="hero-grid">
+            <!-- Left content -->
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    <span class="eyebrow-line"></span>
+                    <span class="eyebrow-text">THE DARK SIDE OF CODE</span>
+                    <span class="eyebrow-line"></span>
+                </div>
+
+                <h1 class="hero-title">
+                    <span class="title-line title-line-1">IZATLO</span>
+                    <span class="title-line title-line-2">XOLMATOV</span>
+                </h1>
+
+                <div class="hero-role">
+                    <span class="role-prefix">//</span>
+                    <span class="role-text" id="typed-role">Fullstack Dasturchi</span>
+                    <span class="role-cursor">|</span>
+                </div>
+
+                <p class="hero-desc">
                     Murakkab muammolarga zamonaviy va xavfsiz yechimlar.
-                    Web dasturlashdan tortib, kiberxavfsizlikkacha bo'lgan keng qamrovli xizmatlar.
+                    Web dasturlashdan tortib, kiberxavfsizlikkacha keng qamrovli xizmatlar.
                 </p>
+
                 <div class="hero-btns">
-                    <a href="https://drive.google.com/file/d/13Wl98i_S_iz-UwwLNfxt1rlqGxJkbAwk/view?usp=drive_link" class="btn btn-primary">Resume <i class="fas fa-arrow-right"></i></a>
-                    <a href="#contact" class="btn btn-secondary"><i class="fab fa-telegram"></i> Aloqa</a>
+                    <a href="https://drive.google.com/file/d/13Wl98i_S_iz-UwwLNfxt1rlqGxJkbAwk/view?usp=drive_link" class="btn-sith btn-primary-sith" target="_blank">
+                        <span class="btn-glow"></span>
+                        <i class="fas fa-scroll"></i> Resume
+                    </a>
+                    <a href="#contact" class="btn-sith btn-ghost-sith">
+                        <i class="fab fa-telegram"></i> Aloqa
+                    </a>
                 </div>
-                <div class="social-links">
-                    <a href="https://t.me/org_itachi1" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
-                    <a href="https://https://github.com/xolmadov" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/izatlo-xolmadov-4007b33b3/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://instagram.com/h1zeet" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="hero-visual" data-aos="fade-left">
-                <div class="code-card">
-                    <div class="card-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                    </div>
-                    <div class="card-body">
-                        <pre><code><span class="keyword">const</span> <span class="variable">developer</span> = {
-    <span class="property">name</span>: <span class="string">'Izatlo'</span>,
-    <span class="property">skills</span>: [
-        <span class="string">'Python'</span>,
-        <span class="string">'Cybersecurity'</span>,
-        <span class="string">'Docker'</span>, <span class="string">'Redis'</span>
-    ],
-    <span class="property">status</span>: <span class="string">'Open for work'</span>
-};</code></pre>
-                    </div>
+
+                <div class="hero-socials">
+                    <a href="https://t.me/org_itachi1" target="_blank" class="social-node" title="Telegram">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://github.com/xolmadov" target="_blank" class="social-node" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/izatlo-xolmadov-4007b33b3/" target="_blank" class="social-node" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://instagram.com/h1zeet" target="_blank" class="social-node" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
+
+            <!-- Right: Code terminal -->
+            <div class="hero-terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="tdot tdot-red"></span>
+                        <span class="tdot tdot-yellow"></span>
+                        <span class="tdot tdot-green"></span>
+                    </div>
+                    <span class="terminal-title">sith_config.js</span>
+                </div>
+                <div class="terminal-body">
+                    <pre><code><span class="t-comment">// ═══ DARK SIDE DEVELOPER ═══</span>
+<span class="t-keyword">const</span> <span class="t-var">sith</span> = {
+  <span class="t-prop">name</span>: <span class="t-str">'Izatlo Xolmadov'</span>,
+  <span class="t-prop">title</span>: <span class="t-str">'Fullstack Dev'</span>,
+  <span class="t-prop">skills</span>: [
+    <span class="t-str">'Python'</span>, <span class="t-str">'JavaScript'</span>,
+    <span class="t-str">'Docker'</span>, <span class="t-str">'Redis'</span>,
+    <span class="t-str">'Cybersecurity'</span>
+  ],
+  <span class="t-prop">power</span>: <span class="t-str">'unlimited'</span>,
+  <span class="t-prop">status</span>: <span class="t-accent">'Open for work'</span>
+};
+
+<span class="t-comment">// The Force is strong here</span>
+<span class="t-keyword">export default</span> sith;</code></pre>
+                </div>
+                <div class="terminal-glow"></div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-
-    <section id="about" class="about">
+    <!-- ABOUT -->
+    <section id="about" class="about reveal-section">
         <div class="container">
-            <h2 class="section-title" data-title="About Me">O'zim Haqimda</h2>
-            <div class="about-content">
-                <div class="about-text glass-card" data-aos="fade-right">
-                    <p>
-                        Men Izatlo Xolmadov — web dasturlash va kiberxavfsizlik yo‘nalishlarida faoliyat yuritayotgan mustaqil dasturchiman. 
-                         web ilovalar va avtomatlashtirilgan tizimlarni ishlab chiqdim.
-                    </p>
-                    <p>
-                        Ishlarimda <strong> Python,  Docker, WebSocket</strong> kabi zamonaviy texnologiyalardan foydalanaman.
-                    </p>
-                    <p>
-                        Shuningdek, <strong>@org_itachi</strong> Telegram kanalim orqali dasturchilar uchun foydali postlar, kod namunalari va real tajribalarga asoslangan maslahatlar bilan bo‘lishib boraman.
-                    </p>
+            <div class="section-header">
+                <span class="section-num">02</span>
+                <h2 class="section-title">O'ZIM <span class="accent">HAQIMDA</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-layout">
+                <div class="about-text-block reveal-item">
+                    <p>Men <span class="accent-text">Izatlo Xolmadov</span> — web dasturlash va kiberxavfsizlik yo'nalishlarida faoliyat yuritayotgan mustaqil dasturchiman.</p>
+                    <p>Web ilovalar va avtomatlashtirilgan tizimlarni ishlab chiqdim. Ishlarimda <span class="accent-text">Python, Docker, WebSocket</span> kabi zamonaviy texnologiyalardan foydalanaman.</p>
+                    <p>Shuningdek, <span class="accent-text">@org_itachi</span> Telegram kanalim orqali dasturchilar uchun foydali postlar va real tajribalarga asoslangan maslahatlar bilan bo'lishib boraman.</p>
                 </div>
-                <div class="skills-grid" data-aos="fade-left">
-                    
-                    <div class="skill-item">
-                        <i class="fab fa-python"></i>
+
+                <div class="skills-block reveal-item">
+                    <div class="skill-node">
+                        <div class="skill-icon"><i class="fab fa-python"></i></div>
                         <span>Python</span>
+                        <div class="skill-bar"><div class="skill-fill" data-fill="90"></div></div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fab fa-js"></i>
+                    <div class="skill-node">
+                        <div class="skill-icon"><i class="fab fa-js"></i></div>
                         <span>JavaScript</span>
+                        <div class="skill-bar"><div class="skill-fill" data-fill="80"></div></div>
                     </div>
-                    
-                    <div class="skill-item">
-                        <i class="fab fa-docker"></i>
+                    <div class="skill-node">
+                        <div class="skill-icon"><i class="fab fa-docker"></i></div>
                         <span>Docker</span>
+                        <div class="skill-bar"><div class="skill-fill" data-fill="75"></div></div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="skill-node">
+                        <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
                         <span>Cybersecurity</span>
+                        <div class="skill-bar"><div class="skill-fill" data-fill="85"></div></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-    
-
-
-    <section id="services" class="services">
+    <!-- PROJECTS -->
+    <section id="projects" class="projects reveal-section">
         <div class="container">
-            <h2 class="section-title" data-title="Services">Xizmatlar</h2>
+            <div class="section-header">
+                <span class="section-num">03</span>
+                <h2 class="section-title">LOYIHA<span class="accent">LAR</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card reveal-item" data-delay="0">
+                    <div class="card-inner">
+                        <div class="card-top">
+                            <div class="card-icon"><i class="fas fa-cloud-sun"></i></div>
+                            <div class="card-links">
+                                <a href="https://izatlodev-wh.vercel.app/" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h3>Ob-havo Platformasi</h3>
+                        <p>O'zbekistonning har qanday nuqtasidagi bir haftalik ob-havo ma'lumotlarini taqdim qiluvchi website.</p>
+                        <div class="card-tags">
+                            <span>Weather API</span>
+                            <span>Frontend</span>
+                        </div>
+                    </div>
+                    <div class="card-border-anim"></div>
+                </div>
+
+                <div class="project-card reveal-item" data-delay="100">
+                    <div class="card-inner">
+                        <div class="card-top">
+                            <div class="card-icon"><i class="fas fa-film"></i></div>
+                            <div class="card-links">
+                                <a href="https://t.me/zenith_movies_bot" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h3>Movies Bot</h3>
+                        <p>Eng yangi kinolar, mashhur seriallar, kino nomi orqali qidiruv. Tez va qulay ko'rish imkoni.</p>
+                        <div class="card-tags">
+                            <span>Movies</span>
+                            <span>Telegram Bot</span>
+                        </div>
+                    </div>
+                    <div class="card-border-anim"></div>
+                </div>
+
+                <div class="project-card reveal-item" data-delay="200">
+                    <div class="card-inner">
+                        <div class="card-top">
+                            <div class="card-icon"><i class="fas fa-eye"></i></div>
+                            <div class="card-links">
+                                <a href="https://t.me/puroxbot" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h3>PuaroX OSINT</h3>
+                        <p>Turli OSINT vositalari, AI xizmatlari, qidiruv natijalarini taqdim qiluvchi telegram bot.</p>
+                        <div class="card-tags">
+                            <span>Security</span>
+                            <span>Scanner</span>
+                        </div>
+                    </div>
+                    <div class="card-border-anim"></div>
+                </div>
+
+                <div class="project-card reveal-item" data-delay="300">
+                    <div class="card-inner">
+                        <div class="card-top">
+                            <div class="card-icon"><i class="fas fa-brain"></i></div>
+                            <div class="card-links">
+                                <a href="https://izatlodev-sp.vercel.app/" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h3>Neyron Tizim</h3>
+                        <p>Qo'l harakatlaringizni aniqlab, ularga mos ravishda harakat qiluvchi neyron tizim.</p>
+                        <div class="card-tags">
+                            <span>Neural</span>
+                            <span>Web</span>
+                        </div>
+                    </div>
+                    <div class="card-border-anim"></div>
+                </div>
+
+                <div class="project-card reveal-item" data-delay="400">
+                    <div class="card-inner">
+                        <div class="card-top">
+                            <div class="card-icon"><i class="fas fa-user-astronaut"></i></div>
+                            <div class="card-links">
+                                <a href="https://izatlodev.vercel.app/" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h3>Portfolio Sayt</h3>
+                        <p>Dasturchi haqida ma'lumot beruvchi va bog'lanish imkonini beruvchi web sahifa.</p>
+                        <div class="card-tags">
+                            <span>Portfolio</span>
+                            <span>Resume</span>
+                        </div>
+                    </div>
+                    <div class="card-border-anim"></div>
+                </div>
+
+                <div class="project-card reveal-item" data-delay="500">
+                    <div class="card-inner">
+                        <div class="card-top">
+                            <div class="card-icon"><i class="fas fa-plug"></i></div>
+                            <div class="card-links">
+                                <a href="http://izatlodev-api.vercel.app/" target="_blank" class="card-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                        <h3>Free API Hub</h3>
+                        <p>Dasturchilar uchun bepul va cheksiz foydalanish mumkin bo'lgan API havolalar platformasi.</p>
+                        <div class="card-tags">
+                            <span>Link</span>
+                            <span>API</span>
+                        </div>
+                    </div>
+                    <div class="card-border-anim"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services reveal-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-num">04</span>
+                <h2 class="section-title">XIZMAT<span class="accent">LAR</span></h2>
+                <div class="section-line"></div>
+            </div>
+
             <div class="services-grid">
-                <div class="service-card glass-card" data-aos="fade-up">
-                    <i class="fas fa-code icon"></i>
+                <div class="service-card reveal-item" data-delay="0">
+                    <div class="service-num">01</div>
+                    <div class="service-icon-wrap">
+                        <i class="fas fa-code"></i>
+                        <div class="service-ring"></div>
+                    </div>
                     <h3>Web Dasturlash</h3>
                     <p>Mukammal va tezkor ishlovchi web saytlar va ilovalar yaratish.</p>
                 </div>
-                <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-server icon"></i>
+                <div class="service-card reveal-item" data-delay="150">
+                    <div class="service-num">02</div>
+                    <div class="service-icon-wrap">
+                        <i class="fas fa-server"></i>
+                        <div class="service-ring"></div>
+                    </div>
                     <h3>API Integratsiya</h3>
                     <p>Turli tizimlar o'rtasida ma'lumot almashinuvini yo'lga qo'yish.</p>
                 </div>
-                <div class="service-card glass-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-user-shield icon"></i>
+                <div class="service-card reveal-item" data-delay="300">
+                    <div class="service-num">03</div>
+                    <div class="service-icon-wrap">
+                        <i class="fas fa-user-shield"></i>
+                        <div class="service-ring"></div>
+                    </div>
                     <h3>Kiberxavfsizlik</h3>
                     <p>Sayt va tizimlarni xavfsizlik auditidan o'tkazish va himoyalash.</p>
                 </div>
@@ -158,51 +345,79 @@
         </div>
     </section>
 
-
-    <section id="contact" class="contact">
+    <!-- CONTACT -->
+    <section id="contact" class="contact reveal-section">
         <div class="container">
-            <h2 class="section-title" data-title="Contact">Bog'lanish</h2>
-            <div class="contact-wrapper glass-card">
-                <div class="contact-info">
-                    <h3>Xabar qoldiring</h3>
+            <div class="section-header">
+                <span class="section-num">05</span>
+                <h2 class="section-title">BOG'LA<span class="accent">NISH</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal-item">
+                    <h3>Xabar Qoldiring</h3>
                     <p>Loyihangiz bormi yoki shunchaki gaplashmoqchimisiz? Menga yozing!</p>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>itachiuchiha201028@gmail.com</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-telegram"></i>
-                        <span>@org_itachi</span>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Andijon, O'zbekiston</span>
+
+                    <div class="info-nodes">
+                        <div class="info-node">
+                            <div class="node-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="node-text">
+                                <span class="node-label">Email</span>
+                                <span>itachiuchiha201028@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="info-node">
+                            <div class="node-icon"><i class="fab fa-telegram"></i></div>
+                            <div class="node-text">
+                                <span class="node-label">Telegram</span>
+                                <span>@org_itachi</span>
+                            </div>
+                        </div>
+                        <div class="info-node">
+                            <div class="node-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="node-text">
+                                <span class="node-label">Joylashuv</span>
+                                <span>Andijon, O'zbekiston</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Ismingiz" required>
+
+                <form class="contact-form reveal-item" id="contact-form">
+                    <div class="input-group">
+                        <input type="text" id="name" placeholder=" " required>
+                        <label for="name">Ismingiz</label>
+                        <div class="input-line"></div>
                     </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Email manzilingiz" required>
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Email manzilingiz</label>
+                        <div class="input-line"></div>
                     </div>
-                    <div class="form-group">
-                        <textarea placeholder="Xabaringiz" rows="5" required></textarea>
+                    <div class="input-group">
+                        <textarea id="message" rows="5" placeholder=" " required></textarea>
+                        <label for="message">Xabaringiz</label>
+                        <div class="input-line"></div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Yuborish <i class="fas fa-paper-plane"></i></button>
+                    <button type="submit" class="btn-sith btn-primary-sith">
+                        <span class="btn-glow"></span>
+                        <i class="fas fa-paper-plane"></i> Yuborish
+                    </button>
                 </form>
             </div>
         </div>
     </section>
 
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Izatlo Xolmadov . Barcha huquqlar himoyalangan.</p>
-            <div class="social-links">
-                <a href="https://t.me/org_itachi1"><i class="fab fa-telegram"></i></a>
-                <a href="https://github.com/xolmadov"><i class="fab fa-github"></i></a>
-                <a href="https://instagram.com/h1zeet"><i class="fab fa-instagram"></i></a>
+    <!-- FOOTER -->
+    <footer class="sith-footer">
+        <div class="footer-saber-line"></div>
+        <div class="container footer-inner">
+            <p class="footer-copy">&copy; 2025 <span class="accent-text">Izatlo Xolmadov</span> — Barcha huquqlar himoyalangan.</p>
+            <div class="footer-socials">
+                <a href="https://t.me/org_itachi1" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="https://github.com/xolmadov" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://instagram.com/h1zeet" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
