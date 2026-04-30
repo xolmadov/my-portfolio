@@ -423,5 +423,26 @@
     </footer>
 
     <script src="script.js"></script>
+<script>
+  // F12 / DevTools ochilishini aniqlash
+  setInterval(() => {
+    const before = new Date();
+    debugger;
+    if (new Date() - before > 100) {
+      document.body.innerHTML = ""; // yoki redirect
+    }
+  }, 1000);
+
+  // Right-click o'chirish
+  document.addEventListener("contextmenu", e => e.preventDefault());
+
+  // Ctrl+U, Ctrl+S, F12 bloklash
+  document.addEventListener("keydown", e => {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && ["u","s","i","j"].includes(e.key.toLowerCase()))
+    ) e.preventDefault();
+  });
+</script>
 </body>
 </html>
